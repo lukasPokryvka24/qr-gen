@@ -1,0 +1,15 @@
+.input_container {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.input_container input {
+	font-size: 1.7em;
+	padding: 0.5em 0.6em;
+	width: 700px;
+}
+
+.input_container input:focus {
+	outline: none;
+}

@@ -1,0 +1,22 @@
+@font-face {
+	font-family: 'Press Start 2P';
+	src: url('../assets/fonts/PressStart2P-Regular.ttf');
+}
+
+.header_container {
+	height: 20vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header_logo {
+	font-family: 'Press Start 2P';
+	color: #f15bb5;
+	font-size: 5em;
+	-webkit-text-stroke: 1px black;
+}
+
+.header_logo span {
+	color: #fee440;
+}
