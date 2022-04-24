@@ -12,6 +12,7 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 	const [size, setSize] = useState<number>(128);
 	const [bgColor, setBgColor] = useState<string>('#ffffff');
 	const [fgColor, setFgColor] = useState<string>('#000000');
+	const [errLevel, setErrLevel] = useState<string>('Q');
 
 	return (
 		<section className={css.tweakbars_container}>
@@ -22,12 +23,14 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 				setBgColor={setBgColor}
 				fgColor={fgColor}
 				setFgColor={setFgColor}
+				setErrLevel={setErrLevel}
 			/>
 			<QrLogo
-				valueToQr={valueToQr}
+				valueToQr={valueToQr || 'QRgen'}
 				size={size}
 				bgColor={bgColor}
 				fgColor={fgColor}
+				level={errLevel}
 			/>
 			<TBRight />
 		</section>

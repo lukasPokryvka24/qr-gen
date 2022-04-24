@@ -5,13 +5,15 @@ interface IProps {
 	size: number;
 	bgColor: string;
 	fgColor: string;
+	level: string;
 }
 
 const QrLogo: React.FunctionComponent<IProps> = ({
 	valueToQr,
 	size,
 	bgColor,
-	fgColor
+	fgColor,
+	level
 }) => (
 	<section>
 		<QRCodeSVG
@@ -19,6 +21,7 @@ const QrLogo: React.FunctionComponent<IProps> = ({
 			size={size}
 			bgColor={bgColor}
 			fgColor={fgColor}
+			level={level}
 		/>
 	</section>
 );

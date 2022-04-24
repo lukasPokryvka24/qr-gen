@@ -1,5 +1,6 @@
 import css from '../../../styles/Tweakbar.module.css';
 import PopOverPicker from './PopOverPicker/PopOverPicker';
+import DropdownMenu from './DropdownMenu/DropdownMenu';
 
 interface IProps {
 	size: number;
@@ -8,6 +9,7 @@ interface IProps {
 	setBgColor: (bgColor: string) => void;
 	fgColor: string;
 	setFgColor: (fgColor: string) => void;
+	setErrLevel: (errLevel: string) => void;
 }
 
 const TBLeft: React.FunctionComponent<IProps> = ({
@@ -16,7 +18,8 @@ const TBLeft: React.FunctionComponent<IProps> = ({
 	bgColor,
 	setBgColor,
 	fgColor,
-	setFgColor
+	setFgColor,
+	setErrLevel
 }) => {
 	return (
 		<section className={css.tweakbar_container}>
@@ -40,6 +43,7 @@ const TBLeft: React.FunctionComponent<IProps> = ({
 			</div>
 			<div className={css.tweakbar_row}>
 				<h3>Error Level</h3>
+				<DropdownMenu setErrLevel={setErrLevel} />
 			</div>
 		</section>
 	);
