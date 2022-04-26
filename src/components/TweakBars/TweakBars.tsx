@@ -14,6 +14,11 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 	const [fgColor, setFgColor] = useState<string>('#000000');
 	const [errLevel, setErrLevel] = useState<string>('Q');
 	const [imgUrl, setImgUrl] = useState<string>('');
+	const [imgWidth, setImgWidth] = useState<number>(0);
+	const [imgHeight, setImgHeight] = useState<number>(0);
+	const [centerImg, setCenterImg] = useState<boolean>(false);
+	const [imgX, setImgX] = useState<number | undefined>(undefined);
+	const [imgY, setImgY] = useState<number | undefined>(undefined);
 
 	return (
 		<section className={css.tweakbars_container}>
@@ -33,8 +38,25 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 				fgColor={fgColor}
 				level={errLevel}
 				imgUrl={imgUrl}
+				imgWidth={imgWidth}
+				imgHeight={imgHeight}
+				imgX={imgX}
+				imgY={imgY}
 			/>
-			<TBRight imgUrl={imgUrl} setImgUrl={setImgUrl} />
+			<TBRight
+				imgUrl={imgUrl}
+				setImgUrl={setImgUrl}
+				imgWidth={imgWidth}
+				setImgWidth={setImgWidth}
+				imgHeight={imgHeight}
+				setImgHeight={setImgHeight}
+				centerImg={centerImg}
+				setCenterImg={setCenterImg}
+				imgX={imgX}
+				setImgX={setImgX}
+				imgY={imgY}
+				setImgY={setImgY}
+			/>
 		</section>
 	);
 };

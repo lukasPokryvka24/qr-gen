@@ -7,6 +7,10 @@ interface IProps {
 	fgColor: string;
 	level: string;
 	imgUrl: string;
+	imgWidth: number;
+	imgHeight: number;
+	imgX: number | undefined;
+	imgY: number | undefined;
 }
 
 const QrLogo: React.FunctionComponent<IProps> = ({
@@ -15,7 +19,11 @@ const QrLogo: React.FunctionComponent<IProps> = ({
 	bgColor,
 	fgColor,
 	level,
-	imgUrl
+	imgUrl,
+	imgWidth,
+	imgHeight,
+	imgX,
+	imgY
 }) => (
 	<section>
 		<QRCodeSVG
@@ -24,7 +32,14 @@ const QrLogo: React.FunctionComponent<IProps> = ({
 			bgColor={bgColor}
 			fgColor={fgColor}
 			level={level}
-			imageSettings={{ src: imgUrl, height: 24, width: 24, excavate: true }}
+			imageSettings={{
+				src: imgUrl,
+				height: imgHeight,
+				width: imgWidth,
+				x: imgX,
+				y: imgY,
+				excavate: true
+			}}
 		/>
 	</section>
 );
