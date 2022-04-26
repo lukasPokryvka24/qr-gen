@@ -24,24 +24,29 @@ const QrLogo: React.FunctionComponent<IProps> = ({
 	imgHeight,
 	imgX,
 	imgY
-}) => (
-	<section>
-		<QRCodeSVG
-			value={valueToQr}
-			size={size}
-			bgColor={bgColor}
-			fgColor={fgColor}
-			level={level}
-			imageSettings={{
+}) => {
+	const imageSettings = imgUrl
+		? {
 				src: imgUrl,
 				height: imgHeight,
 				width: imgWidth,
 				x: imgX,
 				y: imgY,
 				excavate: true
-			}}
-		/>
-	</section>
-);
+		  }
+		: undefined;
+	return (
+		<section>
+			<QRCodeSVG
+				value={valueToQr}
+				size={size}
+				bgColor={bgColor}
+				fgColor={fgColor}
+				level={level}
+				imageSettings={imageSettings}
+			/>
+		</section>
+	);
+};
 
 export default QrLogo;

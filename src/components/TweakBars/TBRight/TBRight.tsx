@@ -1,3 +1,6 @@
+import React from 'react';
+import css from '../../../styles/Tweakbar.module.css';
+
 interface IProps {
 	imgUrl: string;
 	setImgUrl: (value: string) => void;
@@ -8,9 +11,10 @@ interface IProps {
 	centerImg: boolean;
 	setCenterImg: (value: boolean) => void;
 	imgX: number | undefined;
-	setImgX: (value: number) => void;
+	setImgX: (value: number | undefined) => void;
 	imgY: number | undefined;
-	setImgY: (value: number) => void;
+	setImgY: (value: number | undefined) => void;
+	size: number;
 }
 
 const TBRight: React.FunctionComponent<IProps> = ({
@@ -25,10 +29,22 @@ const TBRight: React.FunctionComponent<IProps> = ({
 	imgX,
 	setImgX,
 	imgY,
-	setImgY
+	setImgY,
+	size
 }) => {
+	const handleCenterImg = (e: React.ChangeEvent<HTMLInputElement>): void => {
+		if (e.target.checked) {
+			setImgX(undefined);
+			setImgY(undefined);
+			setCenterImg(true);
+		} else {
+			setCenterImg(false);
+		}
+	};
+
 	return (
-		<section>
+		<fieldset className={css.tweakbar_container}>
+			<legend>Image settings</legend>
 			<div>
 				<h3>Image source</h3>
 				<input
@@ -62,7 +78,7 @@ const TBRight: React.FunctionComponent<IProps> = ({
 				<input
 					type="checkbox"
 					checked={centerImg}
-					onChange={(e) => setCenterImg(e.target.checked)}
+					onChange={(e) => handleCenterImg(e)}
 				/>
 			</div>
 			<div>
@@ -71,7 +87,7 @@ const TBRight: React.FunctionComponent<IProps> = ({
 					type="range"
 					value={imgX}
 					min={0}
-					max={100}
+					max={size - imgWidth}
 					onChange={(e) => setImgX(parseInt(e.target.value))}
 					disabled={centerImg}
 				/>
@@ -82,12 +98,12 @@ const TBRight: React.FunctionComponent<IProps> = ({
 					type="range"
 					value={imgY}
 					min={0}
-					max={100}
+					max={size - imgHeight}
 					onChange={(e) => setImgY(parseInt(e.target.value))}
 					disabled={centerImg}
 				/>
 			</div>
-		</section>
+		</fieldset>
 	);
 };
 

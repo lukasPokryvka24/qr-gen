@@ -14,8 +14,8 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 	const [fgColor, setFgColor] = useState<string>('#000000');
 	const [errLevel, setErrLevel] = useState<string>('Q');
 	const [imgUrl, setImgUrl] = useState<string>('');
-	const [imgWidth, setImgWidth] = useState<number>(0);
-	const [imgHeight, setImgHeight] = useState<number>(0);
+	const [imgWidth, setImgWidth] = useState<number>(24);
+	const [imgHeight, setImgHeight] = useState<number>(24);
 	const [centerImg, setCenterImg] = useState<boolean>(false);
 	const [imgX, setImgX] = useState<number | undefined>(undefined);
 	const [imgY, setImgY] = useState<number | undefined>(undefined);
@@ -56,6 +56,7 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 				setImgX={setImgX}
 				imgY={imgY}
 				setImgY={setImgY}
+				size={size}
 			/>
 		</section>
 	);
