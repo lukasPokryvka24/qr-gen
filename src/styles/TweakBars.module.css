@@ -2,5 +2,15 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	height: 300px;
+	height: 500px;
+	flex-wrap: wrap;
+}
+
+.tweakbars_container > div {
+	flex-basis: 300px;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
 }

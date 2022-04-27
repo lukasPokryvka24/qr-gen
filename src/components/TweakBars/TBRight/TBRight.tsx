@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '../../../styles/Tweakbar.module.css';
+import css from '../../../styles/TweakBar.module.css';
 
 interface IProps {
 	imgUrl: string;
@@ -45,15 +45,16 @@ const TBRight: React.FunctionComponent<IProps> = ({
 	return (
 		<fieldset className={css.tweakbar_container}>
 			<legend>Image settings</legend>
-			<div>
+			<div className={css.tweakbar_row}>
 				<h3>Image source</h3>
 				<input
 					type="text"
 					value={imgUrl}
 					onChange={(e) => setImgUrl(e.target.value)}
+					className={css.input_number}
 				/>
 			</div>
-			<div>
+			<div className={css.tweakbar_row}>
 				<h3>Image width</h3>
 				<input
 					type="number"
@@ -61,9 +62,10 @@ const TBRight: React.FunctionComponent<IProps> = ({
 					min={0}
 					max={100}
 					onChange={(e) => setImgWidth(parseInt(e.target.value))}
+					className={css.input_number}
 				/>
 			</div>
-			<div>
+			<div className={css.tweakbar_row}>
 				<h3>Image height</h3>
 				<input
 					type="number"
@@ -71,9 +73,10 @@ const TBRight: React.FunctionComponent<IProps> = ({
 					min={0}
 					max={100}
 					onChange={(e) => setImgHeight(parseInt(e.target.value))}
+					className={css.input_number}
 				/>
 			</div>
-			<div>
+			<div className={css.tweakbar_row}>
 				<h3>Center image</h3>
 				<input
 					type="checkbox"
@@ -81,7 +84,7 @@ const TBRight: React.FunctionComponent<IProps> = ({
 					onChange={(e) => handleCenterImg(e)}
 				/>
 			</div>
-			<div>
+			<div className={css.tweakbar_row}>
 				<h3>Image X: {imgX}</h3>
 				<input
 					type="range"
@@ -90,9 +93,10 @@ const TBRight: React.FunctionComponent<IProps> = ({
 					max={size - imgWidth}
 					onChange={(e) => setImgX(parseInt(e.target.value))}
 					disabled={centerImg}
+					className={css.input_range}
 				/>
 			</div>
-			<div>
+			<div className={css.tweakbar_row}>
 				<h3>Image Y: {imgY}</h3>
 				<input
 					type="range"
@@ -101,6 +105,7 @@ const TBRight: React.FunctionComponent<IProps> = ({
 					max={size - imgHeight}
 					onChange={(e) => setImgY(parseInt(e.target.value))}
 					disabled={centerImg}
+					className={css.input_range}
 				/>
 			</div>
 		</fieldset>

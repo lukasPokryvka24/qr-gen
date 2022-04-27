@@ -1,8 +1,10 @@
 import QrLogo from '../QrLogo/QrLogo';
 import TBLeft from './TBLeft/TBLeft';
 import TBRight from './TBRight/TBRight';
-import css from '../../styles/Tweakbars.module.css';
+import DownloadButton from '../DownloadButton/DownloadButton';
+import css from '../../styles/TweakBars.module.css';
 import { useState } from 'react';
+import downloadPng from 'svg-crowbar';
 
 interface IProps {
 	valueToQr: string;
@@ -13,12 +15,17 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 	const [bgColor, setBgColor] = useState<string>('#ffffff');
 	const [fgColor, setFgColor] = useState<string>('#000000');
 	const [errLevel, setErrLevel] = useState<string>('Q');
+	const [includeMargin, setIncludeMargin] = useState<boolean>(false);
 	const [imgUrl, setImgUrl] = useState<string>('');
 	const [imgWidth, setImgWidth] = useState<number>(24);
 	const [imgHeight, setImgHeight] = useState<number>(24);
 	const [centerImg, setCenterImg] = useState<boolean>(false);
 	const [imgX, setImgX] = useState<number | undefined>(undefined);
 	const [imgY, setImgY] = useState<number | undefined>(undefined);
+
+	const downloadQRCode = (): void => {
+		downloadPng(document.querySelector('svg'));
+	};
 
 	return (
 		<section className={css.tweakbars_container}>
@@ -30,19 +37,25 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 				fgColor={fgColor}
 				setFgColor={setFgColor}
 				setErrLevel={setErrLevel}
+				setIncludeMargin={setIncludeMargin}
 			/>
-			<QrLogo
-				valueToQr={valueToQr || 'QRgen'}
-				size={size}
-				bgColor={bgColor}
-				fgColor={fgColor}
-				level={errLevel}
-				imgUrl={imgUrl}
-				imgWidth={imgWidth}
-				imgHeight={imgHeight}
-				imgX={imgX}
-				imgY={imgY}
-			/>
+			<div>
+				<QrLogo
+					valueToQr={valueToQr || 'QRgen'}
+					size={size}
+					bgColor={bgColor}
+					fgColor={fgColor}
+					level={errLevel}
+					imgUrl={imgUrl}
+					imgWidth={imgWidth}
+					imgHeight={imgHeight}
+					imgX={imgX}
+					imgY={imgY}
+					includeMargin={includeMargin}
+				/>
+				<DownloadButton downloadQRCode={downloadQRCode} />
+			</div>
+
 			<TBRight
 				imgUrl={imgUrl}
 				setImgUrl={setImgUrl}

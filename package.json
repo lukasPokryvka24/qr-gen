@@ -11,7 +11,8 @@
     "qrcode.react": "^3.0.1",
     "react": "^18.0.0",
     "react-colorful": "^5.5.1",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "svg-crowbar": "^0.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

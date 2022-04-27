@@ -1,4 +1,4 @@
-import css from '../../../styles/Tweakbar.module.css';
+import css from '../../../styles/TweakBar.module.css';
 import PopOverPicker from './PopOverPicker/PopOverPicker';
 import DropdownMenu from './DropdownMenu/DropdownMenu';
 
@@ -10,6 +10,7 @@ interface IProps {
 	fgColor: string;
 	setFgColor: (fgColor: string) => void;
 	setErrLevel: (errLevel: string) => void;
+	setIncludeMargin: (includeMargin: boolean) => void;
 }
 
 const TBLeft: React.FunctionComponent<IProps> = ({
@@ -19,10 +20,18 @@ const TBLeft: React.FunctionComponent<IProps> = ({
 	setBgColor,
 	fgColor,
 	setFgColor,
-	setErrLevel
+	setErrLevel,
+	setIncludeMargin
 }) => {
+	const handleSizeChange = (imgSize: number) => {
+		if (imgSize > 256) setSize(256);
+		else if (isNaN(imgSize)) setSize(64);
+		else setSize(imgSize);
+	};
+
 	return (
-		<section className={css.tweakbar_container}>
+		<fieldset className={css.tweakbar_container}>
+			<legend>QR settings</legend>
 			<div className={css.tweakbar_row}>
 				<h3>Size(px)</h3>
 				<input
@@ -30,7 +39,8 @@ const TBLeft: React.FunctionComponent<IProps> = ({
 					min="64"
 					max="256"
 					value={size}
-					onChange={(e) => setSize(parseInt(e.target.value))}
+					onChange={(e) => handleSizeChange(parseInt(e.target.value))}
+					className={css.input_number}
 				/>
 			</div>
 			<div className={css.tweakbar_row}>
@@ -45,7 +55,14 @@ const TBLeft: React.FunctionComponent<IProps> = ({
 				<h3>Error Level</h3>
 				<DropdownMenu setErrLevel={setErrLevel} />
 			</div>
-		</section>
+			<div className={css.tweakbar_row}>
+				<h3>Include margin</h3>
+				<input
+					type="checkbox"
+					onChange={(e) => setIncludeMargin(e.target.checked)}
+				/>
+			</div>
+		</fieldset>
 	);
 };
 

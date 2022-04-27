@@ -11,6 +11,7 @@ interface IProps {
 	imgHeight: number;
 	imgX: number | undefined;
 	imgY: number | undefined;
+	includeMargin: boolean;
 }
 
 const QrLogo: React.FunctionComponent<IProps> = ({
@@ -23,7 +24,8 @@ const QrLogo: React.FunctionComponent<IProps> = ({
 	imgWidth,
 	imgHeight,
 	imgX,
-	imgY
+	imgY,
+	includeMargin
 }) => {
 	const imageSettings = imgUrl
 		? {
@@ -43,6 +45,7 @@ const QrLogo: React.FunctionComponent<IProps> = ({
 				bgColor={bgColor}
 				fgColor={fgColor}
 				level={level}
+				includeMargin={includeMargin}
 				imageSettings={imageSettings}
 			/>
 		</section>
