@@ -14,7 +14,7 @@
 	align-items: center;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1331px) {
 	.tweakbars_container > fieldset:first-child {
 		order: 1;
 	}
