@@ -13,3 +13,32 @@
 	height: 100%;
 	align-items: center;
 }
+
+@media screen and (max-width: 1300px) {
+	.tweakbars_container > fieldset:first-child {
+		order: 1;
+	}
+	.tweakbars_container > fieldset:last-child {
+		order: 2;
+	}
+	.tweakbars_container > div {
+		order: 3;
+		margin-top: 2em;
+		padding-bottom: 2em;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.tweakbars_container {
+		flex-flow: column;
+	}
+
+	.tweakbars_container > fieldset:last-child {
+		margin-top: 2em;
+	}
+
+	.tweakbars_container > div {
+		padding-bottom: 2em;
+		flex-basis: auto;
+	}
+}

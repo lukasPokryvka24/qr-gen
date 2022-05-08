@@ -51,3 +51,9 @@
 .input_range {
 	accent-color: #fee440;
 }
+
+@media screen and (max-width: 550px) {
+	.tweakbar_container {
+		width: auto;
+	}
+}
