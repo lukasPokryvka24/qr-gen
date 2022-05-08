@@ -2,8 +2,8 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	height: 500px;
 	flex-wrap: wrap;
+	margin-top: 2em;
 }
 
 .tweakbars_container > div {
@@ -12,5 +12,4 @@
 	flex-flow: column;
 	height: 100%;
 	align-items: center;
-	justify-content: center;
 }

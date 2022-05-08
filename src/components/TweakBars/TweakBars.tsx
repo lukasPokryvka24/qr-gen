@@ -4,7 +4,6 @@ import TBRight from './TBRight/TBRight';
 import DownloadButton from '../DownloadButton/DownloadButton';
 import css from '../../styles/TweakBars.module.css';
 import { useState } from 'react';
-import downloadPng from 'svg-crowbar';
 
 interface IProps {
 	valueToQr: string;
@@ -22,10 +21,6 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 	const [centerImg, setCenterImg] = useState<boolean>(false);
 	const [imgX, setImgX] = useState<number | undefined>(undefined);
 	const [imgY, setImgY] = useState<number | undefined>(undefined);
-
-	const downloadQRCode = (): void => {
-		downloadPng(document.querySelector('svg'));
-	};
 
 	return (
 		<section className={css.tweakbars_container}>
@@ -53,7 +48,7 @@ const Tweakbars: React.FunctionComponent<IProps> = ({ valueToQr }) => {
 					imgY={imgY}
 					includeMargin={includeMargin}
 				/>
-				<DownloadButton downloadQRCode={downloadQRCode} />
+				<DownloadButton />
 			</div>
 
 			<TBRight

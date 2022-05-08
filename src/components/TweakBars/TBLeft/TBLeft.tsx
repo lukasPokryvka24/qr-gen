@@ -23,7 +23,7 @@ const TBLeft: React.FunctionComponent<IProps> = ({
 	setErrLevel,
 	setIncludeMargin
 }) => {
-	const handleSizeChange = (imgSize: number) => {
+	const handleSizeChange = (imgSize: number): void => {
 		if (imgSize > 256) setSize(256);
 		else if (isNaN(imgSize)) setSize(64);
 		else setSize(imgSize);
