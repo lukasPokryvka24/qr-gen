@@ -1,9 +1,10 @@
+import { useState } from 'react';
+
 import QrLogo from '../QrLogo/QrLogo';
 import TBLeft from './TBLeft/TBLeft';
 import TBRight from './TBRight/TBRight';
 import DownloadButton from '../DownloadButton/DownloadButton';
 import css from '../../styles/TweakBars.module.css';
-import { useState } from 'react';
 
 interface IProps {
 	valueToQr: string;

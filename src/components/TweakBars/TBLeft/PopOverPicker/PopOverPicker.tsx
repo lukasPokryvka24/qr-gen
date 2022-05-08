@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { HexColorPicker } from 'react-colorful';
+
 import useClickOutside from '../../../../hooks/useClickOutside';
 import css from '../../../../styles/PopOverPicker.module.css';
 
